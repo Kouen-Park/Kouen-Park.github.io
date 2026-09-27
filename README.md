@@ -172,3 +172,19 @@ npm run preview  # 빌드 결과 미리보기
   레거시 Jekyll 빌드가 돌아 실패합니다.
 - **workflow의 `node-version: 22`를 낮추지 마세요.** `withastro/action`의 기본값은
   Node 20인데 astro 7은 Node 22.12 이상을 요구해서 빌드가 즉시 실패합니다.
+
+## 방문 통계
+
+[GoatCounter](https://www.goatcounter.com/)를 연결하면 방문자 수, 페이지뷰, 인기 글,
+유입 경로를 대시보드에서 확인할 수 있습니다. 방문자 브라우저에 쿠키나 식별자를
+저장하지 않으며, 설정 전에는 분석 스크립트가 HTML에 포함되지 않습니다.
+
+1. GoatCounter에서 사이트를 만들고 사이트 코드를 정합니다.
+2. GitHub 저장소의 **Settings → Secrets and variables → Actions → Variables**에서
+   `PUBLIC_GOATCOUNTER_CODE`를 추가합니다. 대시보드 주소가
+   `https://parkseongjin.goatcounter.com`이라면 값은 `parkseongjin`입니다.
+3. `main` 브랜치의 배포 워크플로를 다시 실행합니다.
+4. `https://사이트코드.goatcounter.com`에서 통계를 확인합니다.
+
+로컬에서 연동 여부만 빌드 결과로 확인하려면 `.env.example`을 `.env`로 복사한 뒤
+사이트 코드를 입력합니다. GoatCounter는 기본적으로 localhost 방문을 집계하지 않습니다.

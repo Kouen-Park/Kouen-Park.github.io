@@ -1,0 +1,16 @@
+---
+const goatcounterCode = import.meta.env.PUBLIC_GOATCOUNTER_CODE?.trim();
+const isValidCode = goatcounterCode && /^[a-z0-9-]+$/.test(goatcounterCode);
+const endpoint = isValidCode ? `https://${goatcounterCode}.goatcounter.com/count` : undefined;
+---
+
+{
+	endpoint && (
+		<script
+			is:inline
+			data-goatcounter={endpoint}
+			async
+			src="https://gc.zgo.at/count.js"
+		></script>
+	)
+}
